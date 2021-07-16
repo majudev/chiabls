@@ -21,8 +21,9 @@ public class EIP2333 {
         byte[] salt = "BLS-SIG-KEYGEN-SALT-".getBytes();
         BigInteger SK = BigInteger.ZERO;
         while(SK.compareTo(BigInteger.ZERO) == 0){
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            salt = digest.digest(salt);
+            //commented out due to error in Chia's EIP2333 implementation
+            //MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            //salt = digest.digest(salt);
 
             byte[] i2osp1 = RFC3447.I2OSP(0, 1);
             byte[] intermediate1 = new byte[IKM.length + i2osp1.length];
@@ -35,16 +36,10 @@ public class EIP2333 {
             System.arraycopy(key_info, 0, intermediate2, 0,  key_info.length);
             System.arraycopy(i2osp2, 0, intermediate2, key_info.length, i2osp2.length);
 
-            //System.out.println("infokey_extended:" + Tester.bytesToHex(intermediate2) + " salt:" + Tester.bytesToHex(salt));
-            //System.out.println("IKM extended:" + Tester.bytesToHex(intermediate1));
-
             byte[] OKM = RFC5869.HKDF_Expand_SHA256(PRK, intermediate2, L);
             BigInteger SKtmp = new BigInteger(1, OKM);
             SK = SKtmp.mod(r);
-            //System.out.println("pre-mod-SK:" + SKtmp.toString() + " r:" + r.toString());
-            //System.out.println("SK:" + SK.toString());
         }
-        //System.out.println(SK.toString());
         return SK.toByteArray();
     }
 
@@ -61,9 +56,7 @@ public class EIP2333 {
     }
 
     private static byte[] parent_SK_to_lamport_PK(byte[] parent_SK, long index) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
-        //System.out.println(index);
         byte[] salt = RFC3447.I2OSP(index, 4);
-        //System.out.println(Tester.bytesToHex(salt));
         byte[] IKM = parent_SK;
         byte[][] lamport_0 = IKM_to_lamport_SK(IKM, salt);
         byte[] not_IKM = IKM.clone();

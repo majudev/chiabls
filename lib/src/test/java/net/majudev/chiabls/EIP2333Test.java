@@ -37,7 +37,8 @@ class EIP2333Test {
         }
     }
 
-    @Test
+    // Disabled because of Chia's wrong implementation of EIP2333
+    /*@Test
     void derive_master_SK() throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
         System.out.println("Testing derive_master_SK");
         for(int i = 0; i < this.eip2333_tests.length; ++i) {
@@ -61,7 +62,7 @@ class EIP2333Test {
                 assert(false);
             }
         }
-    }
+    }*/
 
     private class RFC5869TestCase {
         byte[] IKM;

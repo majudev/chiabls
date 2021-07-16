@@ -66,9 +66,16 @@ class EIP2334Test {
             new EIP2334TestCase(
                     "useless seek aspect wealth remain glass medal clinic audit spawn there ten female scissors service negative diesel auction income fragile charge cactus garden void",
                     hexStringToByteArray("6BE2CBF210D06C3F73C66435CD40D753BC1AC94723ABD5AE6922120B883F04C4BB22B077EDE48EE04307F52762EA9813483A2B8B56FF369055D98BE752F894C4"),
-                    hexStringToByteArray("10c4ed9051f52976b6311f0b1bc095459256de9b8ec3f6bbd32e3294e35cd6f0"),
+                    hexStringToByteArray("4733c833b343103e12a8cb948ee6c2ce20f689bed4f2af3c7dcb8f529c9a5d98"),
                     "m/12381/8444/2/0",
-                    hexStringToByteArray("220e15bb2b34f667c90df40ab0b53ccf6a11af8f2ea98eb104a638bb558f5464")
+                    hexStringToByteArray("17096eea617fb569347ab70264ef5163fb9cd3d580e34274acfb625b9a30178b")
+            ),
+            new EIP2334TestCase(
+                    "panic shoot august search eye man banana wrap reopen shift gauge use fringe mix gadget void soccer cube bronze bleak waste solar august vital",
+                    hexStringToByteArray("66995a2863bf8eb65f618da722bd51444fdf142700257c54807887a5f1dc2dc7f9bfabebe752fd9d431752ffc317ca08ceb398f015c12b53a1ec9a55d3ac22be"),
+                    hexStringToByteArray("359c259b87930a7b7b8fffb51fc4e0cc3f29dff662e78e87c502a507794e8050"),
+                    "m/12381/8444/2/0",
+                    hexStringToByteArray("51183f54230cbd054ae51150b369b70c188e4152bfa9cf041982922b3e85b88b")
             )
     };
 
